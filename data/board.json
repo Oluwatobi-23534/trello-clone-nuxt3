@@ -1,0 +1,55 @@
+{
+    "name": "task-board",
+    "columns": [
+        {
+            "name": "todo",
+            "tasks": [
+                {
+                    "id": "5a8e6062-a2c3-4366-afa7-fc411bf70963",
+                    "name": "#task 1",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "name": "todo",
+            "tasks": [
+                {
+                    "id": "d1cf3e8e-7403-4fb7-a9be-9625958669ae",
+                    "name": "#task 2",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "name": "todo",
+            "tasks": [
+                {
+                    "id": "a9dd1403-66db-4d64-bf9a-0a635031b56d",
+                    "name": "#task 3",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "name": "todo",
+            "tasks": [
+                {
+                    "id": "875e7293-16ef-4ade-bbf3-701e0d52a4cd",
+                    "name": "#task 4",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "name": "todo",
+            "tasks": [
+                {
+                    "id": "5dbc25b8-ca5c-4768-a89c-1b90acb9cb5a",
+                    "name": "#task 5",
+                    "description": ""
+                }
+            ]
+        }
+    ]
+}
