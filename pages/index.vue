@@ -1,16 +1,38 @@
 <script setup>
-import { useBoardStore } from '../stores/boardStore';
+import { useBoardStore } from "../stores/boardStore";
+
+const boardStore = useBoardStore();
 
 
-const boardStore = useBoardStore()
+const newColumnName = ref("");
+
+function addColumn() {
+  boardStore.addColumn(newColumnName.value);
+  newColumnName.value = "";
+}
+
+
 </script>
 
-
-
-
 <template>
-  <main>
-    <h1>Build a trello clone home page</h1>
-    <pre>{{ boardStore.board }}</pre>
-  </main>
+  <div class="board-wrapper">
+    <main class="board">
+      <BoardColumn
+        v-for="(column, columnIndex) in boardStore.board.columns"
+        :key="column.id"
+        :column="column"
+        :columnIndex="columnIndex"
+      />
+
+      <UContainer class="column">
+        <UInput
+          v-model="newColumnName"
+          type="text"
+          placeholder="Create new column"
+          icon="i-heroicons-plus-circle-solid"
+          @keyup.enter="addColumn($event)"
+        />
+      </UContainer>
+    </main>
+  </div>
 </template>

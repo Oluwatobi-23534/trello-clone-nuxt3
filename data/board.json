@@ -1,55 +1,45 @@
 {
-    "name": "task-board",
-    "columns": [
+  "name": "task-board",
+  "columns": [
+    { "id": "60ae7f1e-d276-4bb8-bd07-60de1d74c251",
+      "name": "todo",
+      "tasks": [
         {
-            "name": "todo",
-            "tasks": [
-                {
-                    "id": "5a8e6062-a2c3-4366-afa7-fc411bf70963",
-                    "name": "#task 1",
-                    "description": ""
-                }
-            ]
+          "id": "0335e09e-c472-4d25-a2a4-2673510c379b",
+          "name": "task #1",
+          "description": ""
         },
         {
-            "name": "todo",
-            "tasks": [
-                {
-                    "id": "d1cf3e8e-7403-4fb7-a9be-9625958669ae",
-                    "name": "#task 2",
-                    "description": ""
-                }
-            ]
-        },
-        {
-            "name": "todo",
-            "tasks": [
-                {
-                    "id": "a9dd1403-66db-4d64-bf9a-0a635031b56d",
-                    "name": "#task 3",
-                    "description": ""
-                }
-            ]
-        },
-        {
-            "name": "todo",
-            "tasks": [
-                {
-                    "id": "875e7293-16ef-4ade-bbf3-701e0d52a4cd",
-                    "name": "#task 4",
-                    "description": ""
-                }
-            ]
-        },
-        {
-            "name": "todo",
-            "tasks": [
-                {
-                    "id": "5dbc25b8-ca5c-4768-a89c-1b90acb9cb5a",
-                    "name": "#task 5",
-                    "description": ""
-                }
-            ]
+          "id": "8a928845-26d0-4462-8ae6-bb7a4b7dc294",
+          "name": "task #2",
+          "description": ""
         }
-    ]
+      ]
+    },
+    { "id": "92968a34-d649-4549-af0c-084cec1cffdf",
+      "name": "in-progress",
+      "tasks": [
+        {
+          "id": "69a1120e-f5e5-437d-9319-f410610a49c8",
+          "name": "task #3",
+          "description": ""
+        }
+      ]
+    },
+    { "id": "8cdd8152-41a4-4d2a-863f-15b8c13bb518",
+      "name": "complete",
+      "tasks": [
+        {
+          "id": "6e7ed610-e788-4640-a55c-c96088f4d0d6",
+          "name": "task #4",
+          "description": ""
+        },
+        {
+          "id": "e3ea69ba-9a4f-4164-af74-78b3cfcf8630",
+          "name": "task #5",
+          "description": ""
+        }
+      ]
+    }
+  ]
 }
