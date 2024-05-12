@@ -30,35 +30,56 @@ function deleteColumn(columnIndex) {
   boardStore.deleteColumn(columnIndex);
 }
 
-function dropTask(event, toColumnIndex) {
-  const fromColumnIndex = event.dataTransfer.getData('from-column-index')
-  const fromTaskIndex = event.dataTransfer.getData('from-task-index')
-  console.log({fromColumnIndex, fromTaskIndex});
+function dropItem(event, toColumnIndex) {
+  const type = event.dataTransfer.getData("type");
+  const fromColumnIndex = event.dataTransfer.getData("from-column-index");
 
-  boardStore.moveTask({
-    taskIndex: fromTaskIndex,
-    fromColumnIndex,
-    toColumnIndex
-  })
+  if (type === "task") {
+    
+    const fromTaskIndex = event.dataTransfer.getData("from-task-index");
+    console.log({ fromColumnIndex, fromTaskIndex });
+
+    boardStore.moveTask({
+      taskIndex: fromTaskIndex,
+      fromColumnIndex,
+      toColumnIndex,
+    });
+  } else if (type === 'column') {
+    boardStore.moveColumn({
+      fromColumnIndex,
+      toColumnIndex,
+    })
+  }
 }
 
 function goToTask(taskId) {
   router.push(`/tasks/${taskId}`);
 }
-function pickupTask(event, {fromColumnIndex, fromTaskIndex}) {
+
+function pickupColumn(event, fromColumnIndex) {
   event.dataTransfer.effectAllowed = "move";
   event.dataTransfer.dropEffect = "move";
-  event.dataTransfer.setData('from-column-index', fromColumnIndex)
-  event.dataTransfer.setData('from-task-index', fromTaskIndex)
+  event.dataTransfer.setData("type", "column");
+  event.dataTransfer.setData("from-column-index", fromColumnIndex);
+}
+
+function pickupTask(event, { fromColumnIndex, fromTaskIndex }) {
+  event.dataTransfer.effectAllowed = "move";
+  event.dataTransfer.dropEffect = "move";
+  event.dataTransfer.setData("type", "task");
+  event.dataTransfer.setData("from-column-index", fromColumnIndex);
+  event.dataTransfer.setData("from-task-index", fromTaskIndex);
 }
 </script>
 
 <template>
   <UContainer
     class="column"
+    draggable="true"
+    @dragstart.self="pickupColumn($event, columnIndex)"
     @dragenter.prevent
     @dragover.prevent
-    @drop.stop="dropTask($event, columnIndex)"
+    @drop.stop="dropItem($event, columnIndex)"
   >
     <div class="column-header mb-4">
       <div>

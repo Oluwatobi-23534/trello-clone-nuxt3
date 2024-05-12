@@ -1,4 +1,4 @@
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';  
 import { defineStore } from "pinia";
 import { useStorage } from '@vueuse/core'
 import boardData from '~/data/board.json'
@@ -55,6 +55,11 @@ export const useBoardStore = defineStore('boardStore', () => {
         board.value.columns.splice(columnIndex, 1)
     }
 
+    function moveColumn({ fromColumnIndex, toColumnIndex }) {
+        const column = board.value.columns.splice(fromColumnIndex, 1)[0]
+        board.value.columns.splice(toColumnIndex, 0, column)
+    }
+
     return {
         // state
         board,
@@ -64,6 +69,7 @@ export const useBoardStore = defineStore('boardStore', () => {
         deleteColumn,
         deleteTask,
         moveTask,
+        moveColumn,
         // Getters
         getTask
     }
